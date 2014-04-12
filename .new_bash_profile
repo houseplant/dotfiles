@@ -1,0 +1,13 @@
+export PATH=/usr/local/bin:$PATH
+
+# .bash_profile gets called at login and .bashrc gets called every time you open a new terminal window, so ask this file to source .bashrc file so we don't have to type this stuff twice. NOTE: mac os x always creates login shells > no .bashrc
+
+if [ -f ~/.bashrc ]; then
+	source ~/.bashrc
+fi
+
+# Navigation aliases
+alias ..="cd .."
+
+# Frequent commands
+alias l="ls -la" 
