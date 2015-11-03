@@ -1,0 +1,7 @@
+[user]
+	name = houseplant
+	email = houseplant@users.noreply.github.com
+[core]
+	editor = nano
+[color]
+	ui = true
