@@ -1,13 +1,46 @@
 export PATH=/usr/local/bin:$PATH
 
-# .bash_profile gets called at login and .bashrc gets called every time you open a new terminal window, so ask this file to source .bashrc file so we don't have to type this stuff twice. NOTE: mac os x always creates login shells > no .bashrc
+# .bash_profile gets called at login and .bashrc gets called every time you open a new terminal window
+# so ask this file to source .bashrc file so we don't have to type this stuff twice (N/A if on a mac).
 
-if [ -f ~/.bashrc ]; then
-	source ~/.bashrc
+# ENVIRONMENT VARIABLES
+# export JAVA_HOME=$(/usr/bin/java)
+PATH=$PATH:/Users/<userName>/dev/bin
+export PATH
+
+# ALIASES
+alias ll='ls -la'
+alias ..='cd .. ; pwd'
+alias count='ls | wc -l'
+
+# TEST TOMCAT
+export TTC='/path/to/testing/tomcat/'
+alias t_start='$TTC/bin/startup.sh'
+alias t_stop='$TTC/bin/shutdown.sh'
+alias t_tail='tail -f -n 100 $TTC/logs/catalina.out'
+alias ttc='cd $TTC'
+alias t_restart='t_stop; sleep 5;t_start'
+
+# CASE INSENSITIVE TAB COMPLETION
+bind 'set completion-ignore-case on'
+bind 'set show-all-if-ambiguous on'
+
+# JAVA_HOME
+export JAVA_HOME=$(/usr/libexec/java_home)
+
+# Setting PATH for Python 3.5
+# The orginal version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
+export PATH
+
+# setting git auto-complete for file/directory names
+if [ -f ~/.git-completion.bash ]; then
+	source ~/.git-completion.bash
 fi
 
-# Navigation aliases
-alias ..="cd .."
+# NOTE: mac os x always creates login shells > no .bashrc
+#if [ -f ~/.bashrc ]; then
+#	source ~/.bashrc
+#fi
 
-# Frequent commands
-alias l="ls -la" 
+
